@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+{% block start %}
+    <h1>This template is return by Django Server</h1>
+    {% comment %} {{peoples}} {% endcomment %}
+
+    <a href="/contact/">
+        Contact
+    </a>
+
+    <a href="/about/">
+        About
+    </a>
+
+    <table class='container'>
+        <tr>
+          <th>s.no</th>
+          <th>name</th>
+          <th>age</th>
+        </tr>
+
+        {% for people in peoples %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{people.name}}</td>
+          <td>{{people.age}}</td>
+        </tr>
+
+        {% endfor %}
+       
+      </table>
+
+      <p>
+        {% if "potato" in vegetables %}
+            yes available
+        {% elif "cucumber" in vegetables %}
+            not available
+        {% else %}
+            nothing is there
+        {% endif %}
+
+{% endblock %}
